@@ -6,12 +6,13 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 //Import the routes
-const userRoutes = require('../routes/user');
+const userRoutes = require('./routes/user');
 
 const app = express();
 const port = process.env.PORT || 9000;
 
 //Middlware
+app.use(express.json()); //Allows to read the json objects from request
 app.use('/api', userRoutes);
 
 //routes
